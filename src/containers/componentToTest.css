@@ -1,0 +1,14 @@
+
+.visualTesting *,
+.visualTesting *:after,
+.visualTesting *:before
+{
+    animation: none !important;
+}
+
+.lochness_testbox
+{
+    padding: 1rem;
+    display: flex;
+    /*flex-direction: row;*/
+}
