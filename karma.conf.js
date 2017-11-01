@@ -17,7 +17,6 @@ module.exports = function(config) {
       mocha: {}
     },
     singleRun: true,
-    reporters: [ 'mocha', 'notification' ],
     preprocessors: {
       'test/loadtests.js': [ 'webpack', 'sourcemap' ]
     },

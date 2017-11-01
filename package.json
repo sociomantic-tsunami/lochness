@@ -20,7 +20,7 @@
     "test:visuals": "build && node bin/visualTests.js -e dev",
     "build": "node bin/build.js",
     "test:visuals:ref": "yarn dist && node bin/visualTests.js -e dev -t reference",
-    "tdd": "karma start --autoWatch=true --singleRun=false",
+    "tdd": "karma start --reporters=mocha,notification --autoWatch=true --singleRun=false",
     "dist": "yarn run copy & webpack --env=dist",
     "clean": "rimraf dist/*",
     "bump": "yarn pre-bump && yarn version && yarn post-bump",
