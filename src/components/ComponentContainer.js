@@ -4,7 +4,7 @@ import PropTypes                              from 'prop-types';
 import ReactDOMServer                         from 'react-dom/server';
 import { Link }                               from 'react-router';
 import * as DisplayComponents                 from 'displayComponentsDist';
-import { Column, H2, IconButton, Module, Tab, Row, Tabs } from 'nessie';
+import { Column, H2, IconButton, Module, Tab, Row, Tabs } from 'nessie-ui';
 
 import CodeViewer                             from './CodeViewer.js';
 import SpecsTable                             from './SpecsTable.js';

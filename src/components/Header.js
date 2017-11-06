@@ -1,7 +1,7 @@
 import React, { Component }               from 'react';
-import { PageHeader, Row, Column, Text }  from 'nessie';
+import { PageHeader, Row, Column, Text }  from 'nessie-ui';
 
-import svgSprite                          from 'nessie/dist/sprite.html';
+import svgSprite                          from 'nessie-ui/dist/sprite.html';
 
 
 export default class LochnessHeader extends Component

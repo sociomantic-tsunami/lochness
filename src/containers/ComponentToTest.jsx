@@ -2,10 +2,10 @@ import React, { Component }   from 'react';
 import { connect }            from 'react-redux';
 
 import * as DisplayComponents from 'displayComponentsDist';
-import { Page }               from 'nessie';
+import { Page }               from 'nessie-ui';
 import { getComponentSpecs }  from '../helpers/componentHelpers';
 
-import svgSprite              from 'nessie/dist/sprite.html';
+import svgSprite              from 'nessie-ui/dist/sprite.html';
 
 import './componentToTest.css';
 const capitalizeFirstLetter = ( str ) =>

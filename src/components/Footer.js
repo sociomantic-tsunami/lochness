@@ -1,5 +1,5 @@
 import React, { Component }                          from 'react';
-import { PageFooter, Row, Column, NessieLogo, Text } from 'nessie';
+import { PageFooter, Row, Column, NessieLogo, Text } from 'nessie-ui';
 
 export default class LochnessFooter extends Component
 {

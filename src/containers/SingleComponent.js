@@ -10,7 +10,7 @@ import toggleCollapse                            from 'actions/toggleCollapse';
 import Header                                    from 'components/Header.js';
 import Footer                                    from 'components/Footer.js';
 import Navigation                                from 'components/Navigation';
-import { Page, PageContent, PageContentHeader }  from 'nessie';
+import { Page, PageContent, PageContentHeader }  from 'nessie-ui';
 import {
     getComponentReadme,
     getComponentSpecs

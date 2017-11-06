@@ -1,6 +1,6 @@
 import React, { Component }         from 'react';
 
-import { NavItem as NessieNavItem } from 'nessie';
+import { NavItem as NessieNavItem } from 'nessie-ui';
 
 export default class NavItem extends Component
 {

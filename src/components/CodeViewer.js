@@ -3,7 +3,7 @@ import PropTypes                from 'prop-types';
 
 import { html as beautifyHtml } from 'js-beautify';
 import CopyToClipboard          from 'react-copy-to-clipboard';
-import { Button, CodeEditor }   from 'nessie';
+import { Button, CodeEditor }   from 'nessie-ui';
 
 export default class CodeViewer extends Component
 {
