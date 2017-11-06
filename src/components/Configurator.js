@@ -9,7 +9,7 @@ import FuncToggle                                       from './FuncToggle';
 import NodeToggle                                       from './NodeToggle';
 import NumberToggle                                     from './NumberToggle';
 
-import { Label, ScrollBox, Table, TableRow, TableCell } from 'nessie';
+import { Label, ScrollBox, Table, TableRow, TableCell } from 'nessie-ui';
 
 export default class Configurator extends Component
 {

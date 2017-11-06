@@ -8,7 +8,7 @@ import * as DisplayComponents from 'displayComponentsDist';
 import updateProps            from 'actions/updateProps';
 import { connect }            from 'react-redux';
 import { nodeToJsx }          from 'helpers/reactNodeHelpers';
-import { TextArea }           from 'nessie';
+import { TextArea }           from 'nessie-ui';
 
 
 class NodeToggle extends ProtoToggle

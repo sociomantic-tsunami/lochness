@@ -1,5 +1,5 @@
 {
-  "name": "lochness",
+  "name": "loch-ness",
   "version": "1.1.1",
   "description": "Live form matrix for UI React components",
   "main": "",
@@ -98,7 +98,7 @@
     "json-loader": "^0.5.4",
     "karma-notification-reporter": "^0.1.1",
     "markdown-loader": "^0.1.7",
-    "nessie": "git+ssh://git@github.com/sociomantic-tsunami/nessie.git#4.0.7",
+    "nessie-ui": "^5.0.0",
     "normalize.css": "^5.0.0",
     "null-loader": "^0.1.1",
     "open": "^0.0.5",

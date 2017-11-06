@@ -6,7 +6,7 @@ import ProtoToggle          from './ProtoToggle';
 import { connect }         	from 'react-redux';
 import updateProps         	from 'actions/updateProps';
 
-import { Switch }           from 'nessie';
+import { Switch }           from 'nessie-ui';
 
 class BoolToggle extends ProtoToggle
 {

@@ -31,7 +31,7 @@ import {
     Module,
     Page,
     Row
-} from 'nessie';
+} from 'nessie-ui';
 
 const babelOptions = { 'presets': [ 'react' ] };
 

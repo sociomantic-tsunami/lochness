@@ -4,7 +4,7 @@ import PropTypes            from 'prop-types';
 import { connect }         	from 'react-redux';
 import updateProps         	from 'actions/updateProps';
 
-import { TextInput }        from 'nessie';
+import { TextInput }        from 'nessie-ui';
 
 import ProtoToggle          from './ProtoToggle';
 
