@@ -1,9 +1,8 @@
-const path = require( 'path' );
+const path    = require( 'path' );
 
 const defaultSettings   = require( './defaults' );
 const baseConfig        = require( './base' );
 
-process.env.REACT_WEBPACK_ENV = 'test';
 
 const config = Object.assign( {}, baseConfig, {
     devtool   : 'eval',
@@ -28,7 +27,7 @@ config.module.rules.push(
     {
         test    : /\.(js|jsx)?$/,
         use     : 'babel-loader',
-        include : /lochness\/src|nessie|lochness\/test/
+        include : /\/src|\/test/
     },
     {
         test : /\.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
