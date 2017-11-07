@@ -23,8 +23,8 @@
     "tdd": "karma start --reporters=mocha,notification --autoWatch=true --singleRun=false",
     "dist": "yarn run copy & webpack --env=dist",
     "clean": "rimraf dist/*",
-    "bump": "yarn pre-bump && yarn release-it ${1} && yarn post-bump",
-    "pre-bump": "git checkout Release && git pull && git merge master --no-ff --no-edit && yarn bin:build && git add . ; git commit -m 'compiled dist & bin files';",
+    "bump": "yarn pre-bump ; yarn release-it ${1} && yarn post-bump",
+    "pre-bump": "git checkout Release && git pull && git merge master --no-ff --no-edit && yarn bin:build && git add . && git commit -m 'compiled dist & bin files'",
     "post-bump": "git checkout master && git cherry-pick --strategy=recursive -X theirs Release && git push"
   },
   "license": "MIT",
