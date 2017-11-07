@@ -1,5 +1,7 @@
-# lochness - 1.1.1
-
+# lochness
+[![GitHub package version](https://img.shields.io/github/package-json/v/sociomantic-tsunami/lochness.svg?style=plastic)]()
+[![David](https://img.shields.io/david/sociomantic-tsunami/lochness.svg?style=plastic)]()
+[![David](https://img.shields.io/david/dev/sociomantic-tsunami/lochness.svg?style=plastic)]()
 [![Lochness build status](https://travis-ci.org/sociomantic-tsunami/lochness.svg)](https://travis-ci.org)
 
 Showoff your monstrous React components. Automatically test if they are what you think they are.
