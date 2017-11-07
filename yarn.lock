@@ -1059,7 +1059,6 @@ backo2@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/backo2/-/backo2-1.0.2.tgz#31ab1ac8b129363463e35b3ebb69f4dfcfba7947"
 
-
 backstopjs@^3.0.22:
   version "3.0.22"
   resolved "https://registry.yarnpkg.com/backstopjs/-/backstopjs-3.0.22.tgz#f74159a4e54d031aa3c550d96d6b3a224ff17ebe"
@@ -1552,7 +1551,7 @@ clap@^1.0.9:
   dependencies:
     chalk "^1.1.3"
 
-classnames@^2.2.3, classnames@^2.2.5:
+classnames@^2.2.3:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
@@ -1606,7 +1605,7 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codemirror@^5.13.4, codemirror@^5.18.2, codemirror@^5.26.0:
+codemirror@^5.13.4, codemirror@^5.26.0:
   version "5.27.4"
   resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.27.4.tgz#0e817c839bfea9959dd16cd48ae14acc0e43c3b6"
 
@@ -1864,6 +1863,17 @@ copyfiles@^0.2.1:
     noms "0.0.0"
     through2 "^2.0.1"
 
+copyfiles@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/copyfiles/-/copyfiles-1.2.0.tgz#a8da3ac41aa2220ae29bd3c58b6984294f2c593c"
+  dependencies:
+    glob "^7.0.5"
+    ltcdr "^2.2.1"
+    minimatch "^3.0.3"
+    mkdirp "^0.5.1"
+    noms "0.0.0"
+    through2 "^2.0.1"
+
 core-js@^1.0.0:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
@@ -2114,7 +2124,7 @@ dateformat@^1.0.6:
   optionalDependencies:
     abstract-socket "^2.0.0"
 
-debug@*, debug@2.6.8, debug@^2.1.1, debug@^2.2.0, debug@^2.6.6, debug@^2.6.7, debug@^2.6.8:
+debug@*, debug@2.6.8, debug@^2.1.1, debug@^2.2.0, debug@^2.6.6, debug@^2.6.8:
   version "2.6.8"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
   dependencies:
@@ -3388,14 +3398,6 @@ har-validator@~4.2.1:
     ajv "^4.9.1"
     har-schema "^1.0.5"
 
-"harpoon@git+ssh://git@github.com/sociomantic/harpoon.git#0.3.0":
-  version "0.3.0"
-  resolved "git+ssh://git@github.com/sociomantic/harpoon.git#09ae8bfde4bd184f7f0d509d2dd85c2c85b8f451"
-  dependencies:
-    inquirer "^0.12.0"
-    q "^1.4.1"
-    simple-git "^1.24.0"
-
 has-ansi@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/has-ansi/-/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
@@ -4426,11 +4428,15 @@ lodash.camelcase@^3.0.1:
   dependencies:
     lodash._createcompounder "^3.0.0"
 
+lodash.clonedeep@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
+
 lodash.cond@^4.3.0:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/lodash.cond/-/lodash.cond-4.5.2.tgz#f471a1da486be60f6ab955d17115523dd1d255d5"
 
-lodash.debounce@^4.0.4, lodash.debounce@^4.0.8:
+lodash.debounce@^4.0.4:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
 
@@ -4455,10 +4461,6 @@ lodash.flatten@^4.2.0:
 lodash.foreach@^4.3.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.foreach/-/lodash.foreach-4.5.0.tgz#1a6a35eace401280c7f06dddec35165ab27e3e53"
-
-lodash.isequal@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
 
 lodash.map@^4.4.0:
   version "4.6.0"
@@ -4820,12 +4822,13 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-"nessie@git+ssh://git@github.com/sociomantic/nessie.git#4.0.7":
-  version "3.10.1"
-  resolved "git+ssh://git@github.com/sociomantic/nessie.git#d0d889018120d15b951c3e68fcf2e902c5562d69"
+"nessie@https://github.com/sociomantic-tsunami/nessie.git":
+  version "4.2.5"
+  resolved "https://github.com/sociomantic-tsunami/nessie.git#dd8a61c8cf986dd9d9fd738a14cbd4b6a5629145"
   dependencies:
     codemirror "^5.26.0"
-    react-codemirror "^1.0.0"
+    copyfiles "^1.2.0"
+    lodash.clonedeep "^4.5.0"
     rimraf "^2.6.1"
 
 nigel@2.x.x:
@@ -5936,7 +5939,7 @@ put@0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/put/-/put-0.0.6.tgz#30f5f60bd6e4389bd329e16a25386cbb2e4a00a3"
 
-q@^1.1.2, q@^1.4.1:
+q@^1.1.2:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.0.tgz#dd01bac9d06d30e6f219aecb8253ee9ebdc308f1"
 
@@ -6038,17 +6041,6 @@ react-codemirror@^0.2.6:
     classnames "^2.2.3"
     codemirror "^5.13.4"
     lodash.debounce "^4.0.4"
-
-react-codemirror@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-codemirror/-/react-codemirror-1.0.0.tgz#91467b53b1f5d80d916a2fd0b4c7adb85a9001ba"
-  dependencies:
-    classnames "^2.2.5"
-    codemirror "^5.18.2"
-    create-react-class "^15.5.1"
-    lodash.debounce "^4.0.8"
-    lodash.isequal "^4.5.0"
-    prop-types "^15.5.4"
 
 react-copy-to-clipboard@^4.1.0:
   version "4.3.1"
@@ -6635,12 +6627,6 @@ sigmund@^1.0.1, sigmund@~1.0.0:
 signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
-
-simple-git@^1.24.0:
-  version "1.73.0"
-  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-1.73.0.tgz#87683a729b1bee016a3182f95a2ab72317bb0230"
-  dependencies:
-    debug "^2.6.7"
 
 sinon@^1.17.7:
   version "1.17.7"
