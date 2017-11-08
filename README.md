@@ -1,4 +1,8 @@
-# lochness - 1.1.1
+# lochness
+[![GitHub package version](https://img.shields.io/github/package-json/v/sociomantic-tsunami/lochness.svg?style=plastic)]()
+[![David](https://img.shields.io/david/sociomantic-tsunami/lochness.svg?style=plastic)]()
+[![David](https://img.shields.io/david/dev/sociomantic-tsunami/lochness.svg?style=plastic)]()
+[![Lochness build status](https://travis-ci.org/sociomantic-tsunami/lochness.svg)](https://travis-ci.org)
 
 Showoff your monstrous React components. Automatically test if they are what you think they are.
 
@@ -24,7 +28,7 @@ The following flags are available:
 	alias         : 's',
 	type          : String,
 	defaultOption : true,
-	defaultValue  : 'node_modules/nessie/src'
+	defaultValue  : 'node_modules/nessie-ui/src'
 },
 {
 	//the React components to display relative to your app dir.
@@ -33,7 +37,7 @@ The following flags are available:
 	name         : 'componentsDist',
 	alias        : 'd',
 	type         : String,
-	defaultValue : 'node_modules/nessie/dist'
+	defaultValue : 'node_modules/nessie-ui/dist'
 },
 {
 	// which Lochness environment should you use? (Dev by default)
@@ -48,7 +52,7 @@ The following flags are available:
 	name         : 'showcasePropsJson',
 	alias        : 'j',
 	type         : String,
-	defaultValue : 'node_modules/nessie/src/defaults.json'
+	defaultValue : 'node_modules/nessie-ui/src/defaults.json'
 }
 ```
 

@@ -11,7 +11,7 @@
 // import React from 'react';
 
 // import Main from 'components/Main';
-// import * as Nessie from 'nessie';
+// import * as Nessie from 'nessie-ui';
 
 // describe( 'MainComponent', () =>
 // {

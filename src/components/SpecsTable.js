@@ -1,7 +1,7 @@
 import React, { Component }             from 'react';
 import PropTypes                        from 'prop-types';
 
-import { Table, TableRow, TableCell }   from 'nessie';
+import { Table, TableRow, TableCell }   from 'nessie-ui';
 
 
 /* Helper method to build a pretty string of valid values for

@@ -10,8 +10,8 @@ const srcPath = defaultSettings.srcPath;
 const nodeModulesPath = path.join( `${__dirname}/../node_modules` );
 
 
-const displayComponentsSrc      = `${nodeModulesPath}/nessie/src`;
-const displayComponentsDefaults = `${nodeModulesPath}/nessie/src/defaults.json`;
+const displayComponentsSrc      = `${nodeModulesPath}/nessie-ui/src`;
+const displayComponentsDefaults = `${nodeModulesPath}/nessie-ui/src/defaults.json`;
 
 const displayComponentProps     = PROPS_DIR;
 

@@ -13,7 +13,7 @@ import Footer                                                  from 'components/
 
 import { getComponentReadme, getComponentSpecs }               from 'helpers/componentHelpers';
 
-import { Page, PageContent, PageContentHeader, TextInput, H1 } from 'nessie';
+import { Page, PageContent, PageContentHeader, TextInput, H1 } from 'nessie-ui';
 
 class Components extends Component
 {
