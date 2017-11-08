@@ -13,7 +13,7 @@
     "lint-fix": "npm run lint -- --fix",
     "bin:build": "babel lib --out-dir bin --source-maps",
     "bin:watch": "babel lib --watch --out-dir bin --source-maps",
-    "start": "yarn run bin:build && node bin/loch.js -e dev",
+    "start": "yarn run bin:build && yarn build && node bin/loch.js -e dev",
     "test": "karma start",
     "test:v:ref": "node bin/visualTests.js -e dev -t reference",
     "test:v": "node bin/visualTests.js -e dev ",
