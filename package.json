@@ -1,6 +1,6 @@
 {
   "name": "loch-ness",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Live form matrix for UI React components",
   "main": "",
   "bin": {
