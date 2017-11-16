@@ -1,7 +1,7 @@
 {
     "pkgFiles": null,
     "src": {
-        "commit": false,
+        "commit": false
     },
     "npm": {
         "publish": false
