@@ -22,7 +22,7 @@
     "test:visuals:ref": "yarn dist && node bin/visualTests.js -e dev -t reference",
     "tdd": "karma start --reporters=mocha,notification --autoWatch=true --singleRun=false",
     "clean": "rimraf dist/*",
-    "changelog": "yarn auto-changelog -- --output CHANGELOG.md && git tag --delete $(git describe --tags --abbrev=0) && git add . && git commit --amend --no-edit",
+    "changelog": "yarn auto-changelog -- --commit-limit false --output CHANGELOG.md && git tag --delete $(git describe --tags --abbrev=0) && git add . && git commit --amend --no-edit",
     "bump": "yarn pre-bump ; release-it --config=preReleaseit.json -n && yarn changelog && release-it --config=postReleaseit.json -n && yarn npm-publish && yarn post-bump",
     "bump:minor": "yarn pre-bump ; release-it minor --config=preReleaseit.json -n && yarn changelog && release-it minor --config=postReleaseit.json -n && yarn npm-publish && yarn post-bump",
     "bump:major": "yarn pre-bump ; release-it major --config=preReleaseit.json -n && yarn changelog && release-it major --config=postReleaseit.json -n && yarn npm-publish && yarn post-bump",
