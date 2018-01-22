@@ -1,5 +1,6 @@
 import React, { Component }                             from 'react';
 import PropTypes                                        from 'prop-types';
+import { Label, ScrollBox, Table, TableRow, TableCell } from 'nessie-ui';
 
 import BoolToggle                                       from './BoolToggle';
 import StringToggle                                     from './StringToggle';
@@ -9,7 +10,6 @@ import FuncToggle                                       from './FuncToggle';
 import NodeToggle                                       from './NodeToggle';
 import NumberToggle                                     from './NumberToggle';
 
-import { Label, ScrollBox, Table, TableRow, TableCell } from 'nessie-ui';
 
 export default class Configurator extends Component
 {
@@ -96,8 +96,13 @@ export default class Configurator extends Component
         const { componentSpecs = {} } = this.props;
 
         return (
-            <ScrollBox height = { 50 }>
-                <Table isZebra columns = { [ { title: 'Prop', size: '1/2' }, { title: 'Value', size: '1/2' } ] }>
+            <ScrollBox height = "50vh" >
+                <Table
+                    isZebra
+                    columns = { [
+                        { title: 'Prop', size: '1/2' },
+                        { title: 'Value', size: '1/2' }
+                    ] }>
                     {
                         Object.keys( componentSpecs ).map( ( propName, index ) =>
                         {
