@@ -1,8 +1,10 @@
-import React, { Component }               from 'react';
-import { PageHeader, Row, Column, Text }  from 'nessie-ui';
+/* global document */
 
-import svgSprite                          from 'nessie-ui/dist/sprite.html';
-
+import React, { Component }              from 'react';
+import { PageHeader, Row, Column, Text } from 'nessie-ui';
+import svgSprite                         from 'nessie-ui/dist/sprite.html';
+import componentPackage
+    from 'displayComponentsRoot/package.json';
 
 export default class LochnessHeader extends Component
 {
@@ -17,15 +19,17 @@ export default class LochnessHeader extends Component
 
     render()
     {
+        const infoText =
+            `${componentPackage.name} ${componentPackage.version}`;
+
         return (
             <PageHeader>
                 <Row verticalAlign = "middle">
-                    <Column size = "1/8">
-                        <img src = "images/lochness.svg" width = "100%" />
+                    <Column>
+                        <Text><strong>LochNess</strong></Text>
                     </Column>
                     <Column align = "right">
-                        <Text><strong>Lochness</strong></Text>
-                        <Text>Sociomantic UI Style Guide and Component Creator</Text>
+                        <Text>{ infoText }</Text>
                     </Column>
                 </Row>
             </PageHeader>

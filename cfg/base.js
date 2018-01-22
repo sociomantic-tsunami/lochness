@@ -9,9 +9,10 @@ const DIST_DIR          = CONSTANTS.DIST_DIR;
 const srcPath = defaultSettings.srcPath;
 const nodeModulesPath = path.join( `${__dirname}/../node_modules` );
 
-
+const displayComponentsRoot     = `${nodeModulesPath}/nessie-ui/`;
 const displayComponentsSrc      = `${nodeModulesPath}/nessie-ui/src`;
-const displayComponentsDefaults = `${nodeModulesPath}/nessie-ui/src/defaults.json`;
+const displayComponentsDefaults =
+    `${nodeModulesPath}/nessie-ui/src/defaults.json`;
 
 const displayComponentProps     = PROPS_DIR;
 
@@ -25,10 +26,10 @@ module.exports =
     },
     externals :
     {
-        'prop-types' : 'PropTypes',
-        react : 'React',
-        'react-dom' : 'ReactDOM',
-        displayComponentsDist: 'DisplayComponents'
+        'prop-types'          : 'PropTypes',
+        react                 : 'React',
+        'react-dom'           : 'ReactDOM',
+        displayComponentsDist : 'DisplayComponents'
     },
     devServer :
     {
@@ -48,6 +49,7 @@ module.exports =
             components : `${srcPath}/components`,
             displayComponentsDefaults,
             displayComponentsSrc,
+            displayComponentsRoot,
             displayComponentProps,
             helpers    : `${srcPath}/helpers`,
             sources    : `${srcPath}/sources`,
