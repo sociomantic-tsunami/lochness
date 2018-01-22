@@ -18,26 +18,26 @@ export default class Navigation extends Component
         const componentsDropdown = Object.keys( components ).map( ( componentName, index ) =>
         (
             <NavItem
-                label         = { componentName }
-                href          = { `/#/component/${componentName}` }
-                key           = { index }
-                isCurrentPage = { componentName === currentPage } />
+                label     = { componentName }
+                href      = { `/#/component/${componentName}` }
+                key       = { index }
+                isCurrent = { componentName === currentPage } />
             ) );
 
         return (
             <NavBar>
                 <NavItem
-                    role          = "primary"
-                    label         = "Components"
-                    href          = "/#/components/"
-                    isCurrentPage = { currentPage === 'components' }>
+                    role      = "primary"
+                    label     = "Components"
+                    href      = "/#/components/"
+                    isCurrent = { currentPage === 'components' }>
                     { componentsDropdown }
                 </NavItem>
                 <NavItem
-                    role          = "primary"
-                    label         = "Editor"
-                    isCurrentPage = { currentPage === 'editor' }
-                    href          = "/#/editor/" />
+                    role      = "primary"
+                    label     = "Editor"
+                    isCurrent = { currentPage === 'editor' }
+                    href      = "/#/editor/" />
             </NavBar>
         );
     }
