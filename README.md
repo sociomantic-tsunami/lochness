@@ -1,8 +1,8 @@
-# lochness
+# LochNess
 [![GitHub package version](https://img.shields.io/github/package-json/v/sociomantic-tsunami/lochness.svg?style=plastic)]()
-[![Lochness build status](https://travis-ci.org/sociomantic-tsunami/lochness.svg)](https://travis-ci.org)
+[![LochNess build status](https://travis-ci.org/sociomantic-tsunami/lochness.svg)](https://travis-ci.org)
 
-Showoff your monstrous React components. Automatically test if they are what you think they are.
+Show off your monstrous React components. Automatically test if they are what you think they are.
 
 Displays all [nessie](https://github.com/sociomantic-tsunami/nessie/) components by default, shows specs, states and allows simple module creation and markup export.
 
@@ -38,7 +38,7 @@ The following flags are available:
 	defaultValue : 'node_modules/nessie-ui/dist'
 },
 {
-	// which Lochness environment should you use? (Dev by default)
+	// which LochNess environment should you use? (Dev by default)
 	name         : 'env',
 	alias        : 'e',
 	type         : String,
@@ -61,7 +61,7 @@ eg:
 
 ## Testing your components
 
-Lochness uses backstop.js to test your components. A `backstop_data` dir will
+LochNess uses backstop.js to test your components. A `backstop_data` dir will
 be created in your project root.
 
 First generate your baseline if you don't have it already.
@@ -98,7 +98,7 @@ Styles are applied through a generated style.css file.
 
 ## Development
 
-You can develop lochness using the `dev` env, and `yarn start` does this for you.
+You can develop LochNess using the `dev` env, and `yarn start` does this for you.
 
 It will use precompiled nessie components by default.
 
@@ -120,7 +120,7 @@ We gladly accept and review any pull-requests. Feel free! :heart:
 
 This project adheres to the [Contributor Covenant](http://contributor-covenant.org/). By participating, you are expected to honor this code.
 
-[Lochness - Code of Conduct](https://github.com/sociomantic-tsunami/lochness/blob/master/CODE_OF_CONDUCT.md)
+[LochNess - Code of Conduct](https://github.com/sociomantic-tsunami/lochness/blob/master/CODE_OF_CONDUCT.md)
 
 
 
