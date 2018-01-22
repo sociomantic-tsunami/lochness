@@ -44,7 +44,8 @@ class Editor extends Component
 
         const beautify = () =>
         {
-            actions.updateJsx( beautifyHtml( editor.jsxString, { indent_size: 4, unformatted: [] } ) );
+            actions.updateJsx( beautifyHtml( editor.jsxString,
+                { indent_size: 4, unformatted: [] } ) );
         };
 
         const insertJsx = () =>
@@ -58,9 +59,9 @@ class Editor extends Component
             actions.spliceJsx( componentJsx, editor.cursor );
         };
 
-        const selectComponent = ( e ) =>
+        const selectComponent = ( e, [ val ] ) =>
         {
-            actions.updateComponent( e.target.innerText.replace( /\r?\n|\r/, '' ) );
+            actions.updateComponent( val );
         };
 
         const wrappedJsx = wrapJsx( cleanseJsx( editor.jsxString ) );
@@ -99,10 +100,10 @@ class Editor extends Component
                 <Row align = "left">
                     <Column size = "1/6">
                         <FlounderDropdown
-                            placeholder  = "Component to add"
-                            data         = { components && Object.keys( components ) }
-                            onChange     = { selectComponent }
-                            defaultValue = { editor.selectedComponent }
+                            placeholder = "Component to add"
+                            data        = { components && Object.keys( components ) }
+                            onChange    = { selectComponent }
+                            value       = { editor.selectedComponent }
                             search />
                     </Column>
                     <Column>
