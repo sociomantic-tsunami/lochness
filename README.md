@@ -21,19 +21,9 @@ The following flags are available:
 
 ```js
 {
-	//Src directory for components to pull Readme
-	name          : 'componentsSrc',
-	alias         : 's',
-	type          : String,
-	defaultOption : true,
-	defaultValue  : 'node_modules/nessie-ui/src'
-},
-{
 	//the React components to display relative to your app dir.
-	//Best to show precompiled things to prevent differences in
-	//webpack/babel etc.
-	name         : 'componentsDist',
-	alias        : 'd',
+	name         : 'components',
+	alias        : 'c',
 	type         : String,
 	defaultValue : 'node_modules/nessie-ui/dist'
 },
@@ -45,7 +35,7 @@ The following flags are available:
 	defaultValue : 'dev'
 },
 {
-	// A defaults.json file of alternative props to pass to displayed components
+	// A defaults.json file of example props to pass to displayed components
 	// overriding defaultProps.
 	name         : 'showcasePropsJson',
 	alias        : 'j',

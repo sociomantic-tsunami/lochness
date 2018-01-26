@@ -71,6 +71,38 @@ export default function components( state = initialState, action )
             return state;
         }
 
+    case 'TOGGLE_COLLAPSE_DESC':
+        {
+            const component       = action.payload.component;
+            const descIsCollapsed = action.payload.descIsCollapsed;
+
+            if ( typeof descIsCollapsed === 'boolean' )
+            {
+                const newState = { ...state };
+                newState[ component ].descIsCollapsed = descIsCollapsed;
+
+                return newState;
+            }
+
+            return state;
+        }
+
+    case 'TOGGLE_COLLAPSE_SPECS':
+        {
+            const component        = action.payload.component;
+            const specsIsCollapsed = action.payload.specsIsCollapsed;
+
+            if ( typeof specsIsCollapsed === 'boolean' )
+            {
+                const newState = { ...state };
+                newState[ component ].specsIsCollapsed = specsIsCollapsed;
+
+                return newState;
+            }
+
+            return state;
+        }
+
     case 'SWITCH_TAB':
         {
             const component      = action.payload.component;

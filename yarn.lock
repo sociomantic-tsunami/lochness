@@ -5449,9 +5449,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-nessie-ui@^5.5.2:
-  version "5.5.2"
-  resolved "https://registry.yarnpkg.com/nessie-ui/-/nessie-ui-5.5.2.tgz#4a17527a226ee6848b6d7b3c3bb6c8d472d6daad"
+nessie-ui@^5.5.3:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/nessie-ui/-/nessie-ui-5.5.3.tgz#06a186c27ef0970e1374a7aed4881c5259c945f3"
   dependencies:
     auto-changelog "^1.1.0"
     codemirror "^5.26.0"

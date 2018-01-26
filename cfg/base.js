@@ -26,10 +26,10 @@ module.exports =
     },
     externals :
     {
-        'prop-types'          : 'PropTypes',
-        react                 : 'React',
-        'react-dom'           : 'ReactDOM',
-        displayComponentsDist : 'DisplayComponents'
+        displayComponents : 'DisplayComponents',
+        'prop-types'      : 'PropTypes',
+        react             : 'React',
+        'react-dom'       : 'ReactDOM',
     },
     devServer :
     {
