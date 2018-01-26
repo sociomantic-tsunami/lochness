@@ -1,7 +1,7 @@
 /* global Babel */
 
 import * as React                            from 'react';
-import * as DisplayComponents                from 'displayComponentsDist';
+import * as DisplayComponents                from 'displayComponents';
 
 import { Component }                         from 'react';
 import { bindActionCreators }                from 'redux';

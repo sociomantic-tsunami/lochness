@@ -1,9 +1,9 @@
 /* global Babel */
 
-import * as React     from  'react';
-import * as DisplayComponents    from 'displayComponentsDist';
+import * as React                from  'react';
+import * as DisplayComponents    from 'displayComponents';
 
-import { unwrapNode } from './reactNodeHelpers';
+import { unwrapNode }            from './reactNodeHelpers';
 
 const babelOptions = { 'presets': [ 'react' ] };
 
@@ -19,9 +19,10 @@ export const cleanseJsx = ( jsxStr = '' ) =>
 {
     const regex = /(<\/?)([A-Z]\w*)/g;
 
-    const cleanse = ( match, g1, g2 ) =>
-DisplayComponents[ g2 ] ? `${g1}DisplayComponents.${g2}`
-                        : g1 + g2.toLowerCase();
+    const cleanse = ( match, g1, g2 ) => (
+        DisplayComponents[ g2 ] ? `${g1}DisplayComponents.${g2}` :
+            g1 + g2.toLowerCase()
+    );
 
     return jsxStr.replace( regex, cleanse );
 };
@@ -42,14 +43,14 @@ export const jsxToReactNode = ( jsxStr = '' ) =>
 
     let wrappedNode = [];
 
-	  try
+    try
     {
-      wrappedNode = eval( Babel.transform( wrappedJsx, babelOptions ).code );
-  }
+        wrappedNode = eval( Babel.transform( wrappedJsx, babelOptions ).code );
+    }
     catch ( err )
     {
-      console.error( 'JSX parse error:', err );
-  }
+        console.error( 'JSX parse error:', err );
+    }
 
     return unwrapNode( wrappedNode );
 };

@@ -1,4 +1,4 @@
-import * as DisplayComponents from 'displayComponentsDist';
+import * as DisplayComponents from 'displayComponents';
 import defaults               from 'displayComponentsDefaults';
 import { jsxToReactNode }     from 'helpers/jsxHelpers';
 
@@ -12,7 +12,7 @@ Object.keys( DisplayComponents ).map( ( componentName ) =>
 
     if ( parsedDefaults[ componentName ] )
     {
-        Object.keys( componentDefaults ).map( ( defaultProp ) =>
+        Object.keys( componentDefaults ).forEach( ( defaultProp ) =>
         {
             const defaultValue = componentDefaults[ defaultProp ];
 

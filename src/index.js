@@ -7,6 +7,7 @@ import AllRoutes                from './routes';
 import { syncHistoryWithStore } from 'react-router-redux';
 import 'normalize.css';
 import nessieCss                from 'nessie-ui/dist/styles.css';
+import lochNessCss              from './styles.css';
 // import displayComponentStyles   from 'displayComponentStyles';
 
 const store = configureStore();

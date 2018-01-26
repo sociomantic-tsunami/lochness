@@ -1,20 +1,20 @@
 const path = require( 'path' );
 
 const defaultSettings = require( './defaults' );
-const CONSTANTS = require( '../constants' );
+const CONSTANTS       = require( '../constants' );
 
-const PROPS_DIR         = CONSTANTS.PROPS_DIR;
-const DIST_DIR          = CONSTANTS.DIST_DIR;
+const PROPS_DIR = CONSTANTS.PROPS_DIR;
+const DIST_DIR  = CONSTANTS.DIST_DIR;
 
 const srcPath = defaultSettings.srcPath;
 const nodeModulesPath = path.join( `${__dirname}/../node_modules` );
 
-const displayComponentsRoot     = `${nodeModulesPath}/nessie-ui/`;
+const displayComponents         = `${nodeModulesPath}/nessie-ui/`;
 const displayComponentsSrc      = `${nodeModulesPath}/nessie-ui/src`;
 const displayComponentsDefaults =
     `${nodeModulesPath}/nessie-ui/src/defaults.json`;
 
-const displayComponentProps     = PROPS_DIR;
+const displayComponentProps = PROPS_DIR;
 
 module.exports =
 {
@@ -47,9 +47,9 @@ module.exports =
         {
             actions    : `${srcPath}/actions`,
             components : `${srcPath}/components`,
-            displayComponentsDefaults,
+            displayComponents,
             displayComponentsSrc,
-            displayComponentsRoot,
+            displayComponentsDefaults,
             displayComponentProps,
             helpers    : `${srcPath}/helpers`,
             sources    : `${srcPath}/sources`,

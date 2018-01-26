@@ -8,7 +8,8 @@ export const getComponentReadme = ( componentName ) =>
 
     try
     {
-        html = require( `html-loader!markdown-loader!displayComponentsSrc/${componentName}/README.md` );
+        html = require( `html-loader!markdown-loader!displayComponentsSrc/\
+${componentName}/README.md` );
     }
     catch ( err )
     {
@@ -28,7 +29,8 @@ export const getComponentSpecs = ( componentName ) =>
 
     try
     {
-        jsonSpecs = require( `displayComponentProps/${componentName}-props.json` );
+        jsonSpecs =
+            require( `displayComponentProps/${componentName}-props.json` );
     }
     catch ( err )
     {
