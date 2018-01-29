@@ -2,11 +2,11 @@ import * as DisplayComponents from 'displayComponents';
 import defaults               from 'displayComponentsDefaults';
 import { jsxToReactNode }     from 'helpers/jsxHelpers';
 
-const initialState = {};
+const initialState = { components: {} };
 
 Object.keys( DisplayComponents ).map( ( componentName ) =>
 {
-    const parsedDefaults      = { ...defaults };
+    const parsedDefaults    = { ...defaults };
     const componentDefaults =
         defaults[ componentName ] ? defaults[ componentName ] : {};
 
@@ -29,7 +29,7 @@ Object.keys( DisplayComponents ).map( ( componentName ) =>
     }
 
 
-    initialState[ componentName ] =
+    initialState.components[ componentName ] =
         { props: parsedDefaults[ componentName ], isCollapsed: true };
 } );
 
@@ -44,10 +44,13 @@ export default function components( state = initialState, action )
 
             if ( typeof newProps === 'object' )
             {
-                const oldProps = state[ component ].props;
+                const oldProps = state.components[ component ].props;
 
-                const newState = { ...state };
-                newState[ component ].props = { ...oldProps, ...newProps };
+                const newComponents = { ...state.components };
+                const newState = { ...state, components: newComponents };
+
+                newState.components[ component ].props =
+                    { ...oldProps, ...newProps };
 
                 return newState;
             }
@@ -62,8 +65,10 @@ export default function components( state = initialState, action )
 
             if ( typeof isCollapsed === 'boolean' )
             {
-                const newState = { ...state };
-                newState[ component ].isCollapsed = isCollapsed;
+                const newComponents = { ...state.components };
+                const newState = { ...state, components: newComponents };
+
+                newState.components[ component ].isCollapsed = isCollapsed;
 
                 return newState;
             }
@@ -78,8 +83,11 @@ export default function components( state = initialState, action )
 
             if ( typeof descIsCollapsed === 'boolean' )
             {
-                const newState = { ...state };
-                newState[ component ].descIsCollapsed = descIsCollapsed;
+                const newComponents = { ...state.components };
+                const newState = { ...state, components: newComponents };
+
+                newState.components[ component ].descIsCollapsed =
+                    descIsCollapsed;
 
                 return newState;
             }
@@ -94,8 +102,11 @@ export default function components( state = initialState, action )
 
             if ( typeof specsIsCollapsed === 'boolean' )
             {
-                const newState = { ...state };
-                newState[ component ].specsIsCollapsed = specsIsCollapsed;
+                const newComponents = { ...state.components };
+                const newState = { ...state, components: newComponents };
+
+                newState.components[ component ].specsIsCollapsed =
+                    specsIsCollapsed;
 
                 return newState;
             }
@@ -110,8 +121,11 @@ export default function components( state = initialState, action )
 
             if ( typeof activeTabIndex === 'number' )
             {
-                const newState = { ...state };
-                newState[ component ].activeTabIndex = activeTabIndex;
+                const newComponents = { ...state.components };
+                const newState = { ...state, components: newComponents };
+
+                newState.components[ component ].activeTabIndex =
+                    activeTabIndex;
 
                 return newState;
             }

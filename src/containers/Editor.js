@@ -1,37 +1,32 @@
 /* global Babel */
-
-import * as React                            from 'react';
-import * as DisplayComponents                from 'displayComponents';
-
-import { Component }                         from 'react';
-import { bindActionCreators }                from 'redux';
-import { connect }                           from 'react-redux';
-
-import Header                                from 'components/Header';
-import Navigation                            from 'components/Navigation';
-
-import LivePreview                           from 'components/LivePreview';
-
-import updateCursor                          from 'actions/updateCursor';
-import updateJsx                             from 'actions/updateJsx';
-import updateComponent                       from 'actions/updateComponent';
-import spliceJsx                             from 'actions/spliceJsx';
-import resetJsx                              from 'actions/resetJsx';
-
-import { nodeToJsx, unwrapNode }             from 'helpers/reactNodeHelpers';
-import { cleanseJsx, wrapJsx }               from 'helpers/jsxHelpers';
-
-import { html as beautifyHtml }              from 'js-beautify';
-
+import * as React                from 'react';
+import { Component }             from 'react';
+import * as DisplayComponents    from 'displayComponents';
+import { bindActionCreators }    from 'redux';
+import { connect }               from 'react-redux';
+import Header                    from 'components/Header';
+import Navigation                from 'components/Navigation';
+import LivePreview               from 'components/LivePreview';
+import updateCursor              from 'actions/updateCursor';
+import updateJsx                 from 'actions/updateJsx';
+import updateComponent           from 'actions/updateComponent';
+import spliceJsx                 from 'actions/spliceJsx';
+import resetJsx                  from 'actions/resetJsx';
+import { nodeToJsx, unwrapNode } from 'helpers/reactNodeHelpers';
+import { cleanseJsx, wrapJsx }   from 'helpers/jsxHelpers';
+import { html as beautifyHtml }  from 'js-beautify';
 import {
     Button,
     CodeEditor,
     Column,
     FlounderDropdown,
+    IconButton,
     Module,
     Page,
-    Row
+    Row,
+    ScrollBox,
 } from 'nessie-ui';
+
 
 const babelOptions = { 'presets': [ 'react' ] };
 
@@ -91,53 +86,72 @@ class Editor extends Component
 
         const previewNode = unwrapNode( wrappedNode );
 
+        const addComponentWidget = (
+            <Row gutters = "S" verticalAlign = "middle">
+                <Column>
+                    <FlounderDropdown
+                        placeholder = "Component to add"
+                        data        = { components && Object.keys( components ) }
+                        onChange    = { selectComponent }
+                        value       = { editor.selectedComponent }
+                        search />
+                </Column>
+                <Column size = "content">
+                    <Button
+                        onClick      = { insertJsx }
+                        isReadOnly   = { !editor.selectedComponent }
+                        iconType     = "add">
+                        Add
+                    </Button>
+                </Column>
+            </Row>
+        );
+
+        const toolbarButtons = (
+            <Row verticalAlign = "middle">
+                <Column>
+                    <IconButton
+                        onClick  = { beautify }
+                        iconType = "validation"
+                        iconSize = "M">
+                        Tidy JSX
+                    </IconButton>
+                </Column>
+                <Column>
+                    <IconButton
+                        onClick  = { actions.resetJsx }
+                        iconType = "delete"
+                        iconSize = "M">
+                        Reset JSX
+                    </IconButton>
+                </Column>
+            </Row>
+        );
+
         return (
             <Page>
                 <Header components = { components } />
 
-                <Navigation currentPage = "editor" components = { components } />
+                <Navigation
+                    components  = { components }
+                    currentPage = "editor" />
 
-                <Row align = "left">
-                    <Column size = "1/6">
-                        <FlounderDropdown
-                            placeholder = "Component to add"
-                            data        = { components && Object.keys( components ) }
-                            onChange    = { selectComponent }
-                            value       = { editor.selectedComponent }
-                            search />
-                    </Column>
-                    <Column>
-                        <Button
-                            onClick      = { insertJsx }
-                            isReadOnly   = { !editor.selectedComponent }
-                            iconType     = "add">
-                            Add
-                        </Button>
-                    </Column>
-                    <Column>
-                        <Button
-                            onClick  = { beautify }
-                            iconType = "validation">
-                            Tidy JSX
-                        </Button>
-                    </Column>
-                    <Column>
-                        <Button
-                            onClick  = { actions.resetJsx }
-                            iconType = "delete">
-                            Reset JSX
-                        </Button>
-                    </Column>
-                </Row>
-
-                <Row className = "editor">
-                    <Column size = "2/5" className = "codeEditor">
+                <Row spacing = "none">
+                    <Column size = "2/5">
                         <Module>
+                            <Row verticalAlign = "middle">
+                                <Column>{ addComponentWidget }</Column>
+                                <Column size = "content">
+                                    { toolbarButtons }
+                                </Column>
+                            </Row>
                             <CodeEditor
                                 value            = { editor.jsxString }
                                 onChange         = { actions.updateJsx }
-                                options          = { { mode       : 'jsx',
-                                indentUnit : 4 } }
+                                options          = { {
+                                    mode       : 'jsx',
+                                    indentUnit : 4,
+                                } }
                                 onCursorActivity = { actions.updateCursor } />
                             <CodeEditor
                                 value      = { errorStr }
@@ -155,23 +169,28 @@ class Editor extends Component
 }
 
 
-const mapStateToProps = ( state ) =>
+const mapStateToProps = state =>
 {
-    const props =
-        {
-            actions    : state.actions,
-            components : state.components,
-            editor     : state.editor
-        };
+    const props = {
+        actions    : state.actions,
+        components : state.components.components,
+        editor     : state.editor
+    };
 
     return props;
 };
 
-const mapDispatchToProps = ( dispatch ) =>
+const mapDispatchToProps = dispatch =>
 {
-    const actions   = { updateComponent, updateCursor, resetJsx, spliceJsx, updateJsx };
-    const actionMap = { actions: bindActionCreators( actions, dispatch ) };
+    const actions = {
+        updateComponent,
+        updateCursor,
+        updateJsx,
+        resetJsx,
+        spliceJsx,
+    };
 
+    const actionMap = { actions: bindActionCreators( actions, dispatch ) };
     return actionMap;
 };
 

@@ -20,16 +20,17 @@ import {
     H1,
     Page,
     PageContent,
-    PageContentHeader,
+    Section,
+    Text,
     TextInput,
 } from 'nessie-ui';
 
 class Components extends Component
 {
-    updateFilter = ( value ) =>
+    updateFilter = value =>
     {
         const { actions } = this.props;
-        actions.updateFilter( { newString: value }, { debounce: 100 } );
+        actions.updateFilter( { newString: value } );
     };
 
     render()
@@ -40,47 +41,37 @@ class Components extends Component
 
         const filteredComponentNames =
             typeof filterString === 'string' && filterString.trim().length ?
-            componentNames.filter(
-                ( name ) =>
+                componentNames.filter( name =>
                 {
                     const regex = new RegExp( filterString, 'i' );
                     return name.match( regex );
-                }
-            ) : componentNames;
+                } ) : componentNames;
 
 
         const componentContainers = filteredComponentNames.map( componentName =>
         {
             const component = components[ componentName ];
+            const readme    = getComponentReadme( componentName );
+            const specs     = getComponentSpecs( componentName );
 
-            if ( componentName !== 'filterString' )
-            {
-                const readme = getComponentReadme( componentName );
-                const specs  = getComponentSpecs( componentName );
-
-                return (
-                    <ComponentContainer
-                        name             = { componentName }
-                        props            = { component.props }
-                        readme           = { readme }
-                        specs            = { specs }
-                        activeTabIndex   = { component.activeTabIndex }
-                        isCollapsible
-                        isCollapsed      = { component.isCollapsed }
-                        descIsCollapsed  = { component.descIsCollapsed }
-                        specsIsCollapsed = { component.specsIsCollapsed }
-                        key              = { componentName }
-                        actions          = { actions } />
-                );
-            }
-
-            return false;
+            return (
+                <ComponentContainer
+                    name             = { componentName }
+                    props            = { component.props }
+                    readme           = { readme }
+                    specs            = { specs }
+                    activeTabIndex   = { component.activeTabIndex }
+                    isCollapsible
+                    isCollapsed      = { component.isCollapsed }
+                    descIsCollapsed  = { component.descIsCollapsed }
+                    specsIsCollapsed = { component.specsIsCollapsed }
+                    key              = { componentName }
+                    actions          = { actions } />
+            );
         } );
 
         const noResults =
-            <div>No components matching <em>{ filterString }</em></div>;
-
-        let searchInput;
+            <Text>No components matching <em>{ filterString }</em></Text>;
 
         return (
             <Page>
@@ -89,25 +80,15 @@ class Components extends Component
                     currentPage = "components"
                     components = { components } />
                 <PageContent>
-                    <PageContentHeader>
                         <H1>Components</H1>
-                        <section>
+                        <Section>
                             <TextInput
-                                ref         = { node =>
-{
-                                    searchInput = node;
-                                } }
                                 label       = "Filter"
                                 placeholder = "Type a component name"
-                                onChange    = { ( e ) =>
-{
-                                    const value = e.target.value;
-                                    searchInput.value = value;
-                                    this.updateFilter( value );
-                                }
-                                    } />
-                        </section>
-                    </PageContentHeader>
+                                onChange    = { e =>
+                                    this.updateFilter( e.target.value ) }
+                                value       =  { filterString }/>
+                        </Section>
                     { componentContainers.length ?
                         componentContainers : noResults
                     }
@@ -122,7 +103,7 @@ const mapStateToProps = state =>
 {
     const props = {
         actions      : state.actions,
-        components   : state.components,
+        components   : state.components.components,
         filterString : state.components.filterString
     };
 
@@ -138,6 +119,7 @@ const mapDispatchToProps = dispatch =>
         switchTab,
         updateFilter,
     };
+
     const actionMap = { actions: bindActionCreators( actions, dispatch ) };
     return actionMap;
 };

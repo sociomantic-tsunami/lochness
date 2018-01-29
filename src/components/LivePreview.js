@@ -14,12 +14,6 @@ export default class LivePreview extends Component
     {
         const { previewNode = [] } = this.props;
 
-        return (
-            <Page>
-                <PageContent>
-                    { previewNode }
-                </PageContent>
-            </Page>
-        );
+        return <PageContent>{ previewNode }</PageContent>;
     }
 }

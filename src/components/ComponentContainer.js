@@ -145,7 +145,8 @@ export default class ComponentContainer extends Component
                 customHeader  = { customHeader }
                 isCollapsible = { isCollapsible }
                 isCollapsed   = { isCollapsed }
-                onClickHeader = { collapseToggle }>
+                onClickHeader = { collapseToggle }
+                onClickToggle = { collapseToggle }>
                 <Tabs
                     activeTabIndex = { activeTabIndex }
                     onChange = { switchTab }>
@@ -181,6 +182,7 @@ export default class ComponentContainer extends Component
                         headerLevel   = { 3 }
                         isCollapsed   = { descIsCollapsed }
                         onClickHeader = { collapseToggleDesc }
+                        onClickToggle = { collapseToggleDesc }
                         title         = "Description">
                         <div dangerouslySetInnerHTML = { createMarkup( readme ) } />
                     </Module>
@@ -190,6 +192,7 @@ export default class ComponentContainer extends Component
                     headerLevel   = { 3 }
                     isCollapsed   = { specsIsCollapsed }
                     onClickHeader = { collapseToggleSpecs }
+                    onClickToggle = { collapseToggleSpecs }
                     title         = "Specifications">
                     <SpecsTable specs = { specs } />
                 </Module>
