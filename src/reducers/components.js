@@ -1,18 +1,18 @@
-import * as DisplayComponents from 'displayComponentsDist';
+import * as DisplayComponents from 'displayComponents';
 import defaults               from 'displayComponentsDefaults';
 import { jsxToReactNode }     from 'helpers/jsxHelpers';
 
-const initialState = {};
+const initialState = { components: {} };
 
 Object.keys( DisplayComponents ).map( ( componentName ) =>
 {
-    const parsedDefaults      = { ...defaults };
+    const parsedDefaults    = { ...defaults };
     const componentDefaults =
         defaults[ componentName ] ? defaults[ componentName ] : {};
 
     if ( parsedDefaults[ componentName ] )
     {
-        Object.keys( componentDefaults ).map( ( defaultProp ) =>
+        Object.keys( componentDefaults ).forEach( ( defaultProp ) =>
         {
             const defaultValue = componentDefaults[ defaultProp ];
 
@@ -29,7 +29,7 @@ Object.keys( DisplayComponents ).map( ( componentName ) =>
     }
 
 
-    initialState[ componentName ] =
+    initialState.components[ componentName ] =
         { props: parsedDefaults[ componentName ], isCollapsed: true };
 } );
 
@@ -44,10 +44,13 @@ export default function components( state = initialState, action )
 
             if ( typeof newProps === 'object' )
             {
-                const oldProps = state[ component ].props;
+                const oldProps = state.components[ component ].props;
 
-                const newState = { ...state };
-                newState[ component ].props = { ...oldProps, ...newProps };
+                const newComponents = { ...state.components };
+                const newState = { ...state, components: newComponents };
+
+                newState.components[ component ].props =
+                    { ...oldProps, ...newProps };
 
                 return newState;
             }
@@ -62,8 +65,48 @@ export default function components( state = initialState, action )
 
             if ( typeof isCollapsed === 'boolean' )
             {
-                const newState = { ...state };
-                newState[ component ].isCollapsed = isCollapsed;
+                const newComponents = { ...state.components };
+                const newState = { ...state, components: newComponents };
+
+                newState.components[ component ].isCollapsed = isCollapsed;
+
+                return newState;
+            }
+
+            return state;
+        }
+
+    case 'TOGGLE_COLLAPSE_DESC':
+        {
+            const component       = action.payload.component;
+            const descIsCollapsed = action.payload.descIsCollapsed;
+
+            if ( typeof descIsCollapsed === 'boolean' )
+            {
+                const newComponents = { ...state.components };
+                const newState = { ...state, components: newComponents };
+
+                newState.components[ component ].descIsCollapsed =
+                    descIsCollapsed;
+
+                return newState;
+            }
+
+            return state;
+        }
+
+    case 'TOGGLE_COLLAPSE_SPECS':
+        {
+            const component        = action.payload.component;
+            const specsIsCollapsed = action.payload.specsIsCollapsed;
+
+            if ( typeof specsIsCollapsed === 'boolean' )
+            {
+                const newComponents = { ...state.components };
+                const newState = { ...state, components: newComponents };
+
+                newState.components[ component ].specsIsCollapsed =
+                    specsIsCollapsed;
 
                 return newState;
             }
@@ -78,8 +121,11 @@ export default function components( state = initialState, action )
 
             if ( typeof activeTabIndex === 'number' )
             {
-                const newState = { ...state };
-                newState[ component ].activeTabIndex = activeTabIndex;
+                const newComponents = { ...state.components };
+                const newState = { ...state, components: newComponents };
+
+                newState.components[ component ].activeTabIndex =
+                    activeTabIndex;
 
                 return newState;
             }

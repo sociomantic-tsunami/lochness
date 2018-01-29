@@ -1,13 +1,17 @@
+/* global document */
+
 import React                    from 'react';
 import { render }               from 'react-dom';
 import { Provider }             from 'react-redux';
-import configureStore           from './stores';
 import { Router, hashHistory }  from 'react-router';
-import AllRoutes                from './routes';
 import { syncHistoryWithStore } from 'react-router-redux';
+
+import configureStore           from './stores';
+import AllRoutes                from './routes';
+
 import 'normalize.css';
-import nessieCss                from 'nessie-ui/dist/styles.css';
-// import displayComponentStyles   from 'displayComponentStyles';
+import 'nessie-ui/dist/styles.css';
+import './styles.css';
 
 const store = configureStore();
 const history = syncHistoryWithStore( hashHistory, store );

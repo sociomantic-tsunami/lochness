@@ -1,17 +1,24 @@
-import React, { Component }               from 'react';
-import { PageHeader, Row, Column, Text }  from 'nessie-ui';
+/* global document */
 
-import svgSprite                          from 'nessie-ui/dist/sprite.html';
-
+import React, { Component } from 'react';
+import svgSprite            from 'nessie-ui/dist/sprite.html';
+import {
+    name as displayComponentsName,
+    version as displayComponentsVersion,
+} from 'displayComponents/package.json';
+import {
+    PageHeader,
+    Row,
+    Column,
+    Text,
+} from 'nessie-ui';
 
 export default class LochnessHeader extends Component
 {
     componentDidMount()
     {
         const svgContainer = document.createElement( 'div' );
-
         svgContainer.innerHTML = svgSprite;
-
         document.body.appendChild( svgContainer );
     }
 
@@ -20,12 +27,14 @@ export default class LochnessHeader extends Component
         return (
             <PageHeader>
                 <Row verticalAlign = "middle">
-                    <Column size = "1/8">
-                        <img src = "images/lochness.svg" width = "100%" />
+                    <Column>
+                        <div className = "lochNessLogo"/>
                     </Column>
                     <Column align = "right">
-                        <Text><strong>Lochness</strong></Text>
-                        <Text>Sociomantic UI Style Guide and Component Creator</Text>
+                        <Text><strong>LochNess</strong></Text>
+                        <Text>
+                            {displayComponentsName} {displayComponentsVersion}
+                        </Text>
                     </Column>
                 </Row>
             </PageHeader>

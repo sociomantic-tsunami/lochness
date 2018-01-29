@@ -1,17 +1,24 @@
-import React, { Component }                   from 'react';
-import PropTypes                              from 'prop-types';
+import React, { Component }   from 'react';
+import PropTypes              from 'prop-types';
+import ReactDOMServer         from 'react-dom/server';
+import { Link }               from 'react-router';
+import * as DisplayComponents from 'displayComponents';
+import {
+    Column,
+    H2,
+    IconButton,
+    Module,
+    Tab,
+    Tabs,
+    Row,
+} from 'nessie-ui';
 
-import ReactDOMServer                         from 'react-dom/server';
-import { Link }                               from 'react-router';
-import * as DisplayComponents                 from 'displayComponentsDist';
-import { Column, H2, IconButton, Module, Tab, Row, Tabs } from 'nessie-ui';
+import CodeViewer             from './CodeViewer';
+import SpecsTable             from './SpecsTable';
+import Configurator           from './Configurator';
+import ModalWrapper           from './ModalWrapper';
 
-import CodeViewer                             from './CodeViewer.js';
-import SpecsTable                             from './SpecsTable.js';
-import Configurator                           from './Configurator.js';
-import ModalWrapper                           from './ModalWrapper.js';
-
-import { nodeToJsx }                          from 'helpers/reactNodeHelpers';
+import { nodeToJsx }          from 'helpers/reactNodeHelpers';
 
 
 export default class ComponentContainer extends Component
@@ -27,16 +34,20 @@ export default class ComponentContainer extends Component
                 PropTypes.string,
                 PropTypes.number
             ] ),
-        isCollapsible : PropTypes.bool,
-        isCollapsed   : PropTypes.bool,
-        actions       : PropTypes.object.isRequired
+        isCollapsible    : PropTypes.bool,
+        isCollapsed      : PropTypes.bool,
+        descIsCollapsed  : PropTypes.bool,
+        specsIsCollapsed : PropTypes.bool,
+        actions          : PropTypes.object.isRequired
     };
 
     static defaultProps =
     {
-        activeTabIndex : 0,
-        isCollapsible  : false,
-        isCollapsed    : false
+        activeTabIndex   : 0,
+        descIsCollapsed  : false,
+        isCollapsible    : false,
+        isCollapsed      : false,
+        specsIsCollapsed : false,
     };
 
     shouldComponentUpdate( newProps )
@@ -52,20 +63,52 @@ export default class ComponentContainer extends Component
 
     render()
     {
-        const { actions, activeTabIndex, isCollapsed, isCollapsible, name,
-            props, readme, specs } = this.props;
+        const {
+            actions,
+            activeTabIndex,
+            descIsCollapsed,
+            isCollapsed,
+            isCollapsible,
+            name,
+            props,
+            readme,
+            specs,
+            specsIsCollapsed,
+         } = this.props;
 
-        if( ! DisplayComponents )
+        if ( !DisplayComponents )
+        {
             throw new Error( 'DisplayComponents is undefined' );
+        }
 
         const ComponentToDisplay = DisplayComponents[ name ];
 
         const component = React.createElement( ComponentToDisplay, props );
-        const lochnessProps = component.props.lochness ? component.props.lochness : {};
+        const lochnessProps =
+            component.props.lochness ? component.props.lochness : {};
 
         const collapseToggle = () =>
         {
-            actions.toggleCollapse( { component: name, isCollapsed: !isCollapsed } );
+            actions.toggleCollapse( {
+                component   : name,
+                isCollapsed : !isCollapsed,
+            } );
+        };
+
+        const collapseToggleDesc = () =>
+        {
+            actions.toggleCollapseDesc( {
+                component       : name,
+                descIsCollapsed : !descIsCollapsed,
+            } );
+        };
+
+        const collapseToggleSpecs = () =>
+        {
+            actions.toggleCollapseSpecs( {
+                component        : name,
+                specsIsCollapsed : !specsIsCollapsed,
+            } );
         };
 
         const switchTab = ( e, newProps ) =>
@@ -84,26 +127,26 @@ export default class ComponentContainer extends Component
                 <Column>
                     <H2>
                         <Link to = { `component/${name}` }>{name}</Link>
-                    { ( lochnessProps.isDeprecated && ' (Deprecated)' ) ||
-                                  ( lochnessProps.isBeta && ' (Beta)' ) }
+                        { lochnessProps.isDeprecated && ' (Deprecated)' }
+                        { lochnessProps.isBeta && ' (Beta)' }
                     </H2>
                 </Column>
                 { isCollapsible &&
-                    <Column size="content">
-                        <IconButton iconType = { isCollapsed ? 'down' : 'up' } />
+                    <Column size = "content">
+                        <IconButton
+                            iconType = { isCollapsed ? 'down' : 'up' } />
                     </Column>
                 }
             </Row>
         );
 
         return (
-
             <Module
                 customHeader  = { customHeader }
                 isCollapsible = { isCollapsible }
                 isCollapsed   = { isCollapsed }
-                onClickHeader = { collapseToggle }>
-
+                onClickHeader = { collapseToggle }
+                onClickToggle = { collapseToggle }>
                 <Tabs
                     activeTabIndex = { activeTabIndex }
                     onChange = { switchTab }>
@@ -112,7 +155,8 @@ export default class ComponentContainer extends Component
                             <Column
                                 size  = "1/2"
                                 align = "left">
-                                { name === 'ModalDialog' ? <ModalWrapper { ...props } /> : component }
+                                { name === 'ModalDialog' ?
+                                    <ModalWrapper { ...props } /> : component }
                             </Column>
                             <Column
                                 size      = "1/2">
@@ -126,28 +170,30 @@ export default class ComponentContainer extends Component
                     <Tab label = "JSX">
                         <CodeViewer code = { nodeToJsx( component ) } />
                     </Tab>
-                    {
-                        readmeExists &&
-                        <Tab label = "HTML" isDisabled = { lochnessProps.disableCode }>
-                            <CodeViewer code = { ReactDOMServer.renderToString( component ) } />
-                        </Tab>
-                    }
+                    <Tab
+                        label = "HTML"
+                        isDisabled = { lochnessProps.disableCode }>
+                        <CodeViewer code = { ReactDOMServer.renderToString( component ) } />
+                    </Tab>
                 </Tabs>
-                {
-                    readmeExists &&
+                { readmeExists &&
                     <Module
-                        headerLevel = { 3 } title = "Description" isCollapsible onToggle = { () =>
-                            {
-                                console.log( 'toggle desc' );
-                            } }>
-                            <div dangerouslySetInnerHTML = { createMarkup( readme ) } />
-                        </Module>
+                        isCollapsible
+                        headerLevel   = { 3 }
+                        isCollapsed   = { descIsCollapsed }
+                        onClickHeader = { collapseToggleDesc }
+                        onClickToggle = { collapseToggleDesc }
+                        title         = "Description">
+                        <div dangerouslySetInnerHTML = { createMarkup( readme ) } />
+                    </Module>
                 }
                 <Module
-                    headerLevel = { 3 } title = "Specifications" isCollapsible onToggle = { () =>
-{
-                        console.log( 'toggle spec' );
-                    } }>
+                    isCollapsible
+                    headerLevel   = { 3 }
+                    isCollapsed   = { specsIsCollapsed }
+                    onClickHeader = { collapseToggleSpecs }
+                    onClickToggle = { collapseToggleSpecs }
+                    title         = "Specifications">
                     <SpecsTable specs = { specs } />
                 </Module>
             </Module>
