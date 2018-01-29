@@ -4,16 +4,18 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var optionDefinitions = [{
+    name: 'components',
+    alias: 'c',
+    type: String,
+    defaultValue: 'node_modules/nessie-ui/'
+}, {
     name: 'componentsSrc',
     alias: 's',
-    type: String,
-    defaultOption: true,
-    defaultValue: 'node_modules/nessie-ui/src'
+    type: String
 }, {
     name: 'componentsDist',
     alias: 'd',
-    type: String,
-    defaultValue: 'node_modules/nessie-ui/dist'
+    type: String
 }, {
     name: 'env',
     alias: 'e',
