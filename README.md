@@ -25,7 +25,7 @@ The following flags are available:
 	name         : 'components',
 	alias        : 'c',
 	type         : String,
-	defaultValue : 'node_modules/nessie-ui/dist'
+	defaultValue : 'node_modules/nessie-ui'
 },
 {
 	// which LochNess environment should you use? (Dev by default)
