@@ -64,6 +64,8 @@ var generateConfig = function generateConfig(options) {
 
     // assume styles.css location for now
     configToUse.resolve.alias.displayComponents = distFiles;
+    configToUse.resolve.alias.displayComponentsSrc = srcFiles;
+    configToUse.resolve.alias.displayComponentsDefaults = jsonDefaults;
 
     return configToUse;
 };
