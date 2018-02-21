@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import updateProps          from 'actions/updateProps';
 
-import { ModalDialog }      from 'nessie-ui';
+import { ModalDialog }      from 'displayComponents';
 
 class ModalWrapper extends Component
 {
