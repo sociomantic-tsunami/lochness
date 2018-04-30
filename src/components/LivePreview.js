@@ -2,6 +2,8 @@ import React, { Component }  from 'react';
 import PropTypes             from 'prop-types';
 
 import { Page, PageContent } from 'nessie-ui';
+import Preview               from './Preview';
+
 
 export default class LivePreview extends Component
 {
@@ -14,6 +16,8 @@ export default class LivePreview extends Component
     {
         const { previewNode = [] } = this.props;
 
-        return <PageContent>{ previewNode }</PageContent>;
+        return <Preview
+            component = { previewNode }
+            style={{minHeight: '100vh', overflow: 'auto'}} />;
     }
 }
