@@ -13,7 +13,7 @@ export default class Preview extends Component
 
             component.map( comp =>
             {
-                template += `<html style="height: auto"><head><link rel="stylesheet" href = 'displayComponentStyles.css' /></head><body style="padding: 8rem;box-sizing: border-box;height: auto;width: 140rem;margin: 0 auto">  ${ReactDOMServer.renderToString( comp )} ${sprite} </body></html>`;
+                template += `<html><head><link rel="stylesheet" href = 'displayComponentStyles.css' /></head><body>  ${ReactDOMServer.renderToString( comp )} ${sprite} </body></html>`;
             } );
             return template;
         }
@@ -22,7 +22,7 @@ export default class Preview extends Component
 
     render()
     {
-        const { component, width, height, style } = this.props;
+        const { component, style } = this.props;
 
         return (
             <iframe
