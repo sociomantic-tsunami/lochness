@@ -20,6 +20,7 @@ import ModalWrapper           from './ModalWrapper';
 
 import { nodeToJsx }          from 'helpers/reactNodeHelpers';
 
+import sprite from 'displayComponents/dist/sprite.html'
 
 export default class ComponentContainer extends Component
 {
@@ -60,9 +61,14 @@ export default class ComponentContainer extends Component
         return true;
     }
 
+    getSrcDoc( component )
+    {
+        return `<html><head><link rel="stylesheet" href = 'displayComponentStyles.css' /></head><body>  ${ReactDOMServer.renderToString( component )} ${ sprite } </body></html>`
+    }
 
     render()
     {
+
         const {
             actions,
             activeTabIndex,
@@ -155,8 +161,11 @@ export default class ComponentContainer extends Component
                             <Column
                                 size  = "1/2"
                                 align = "left">
-                                { name === 'ModalDialog' ?
-                                    <ModalWrapper { ...props } /> : component }
+                             <iframe
+                                 srcDoc = { this.getSrcDoc( component ) }
+                                 frameBorder = { 0 }
+                                 height = "100%"
+                                 width = "100%" />
                             </Column>
                             <Column
                                 size      = "1/2">
@@ -198,5 +207,6 @@ export default class ComponentContainer extends Component
                 </Module>
             </Module>
         );
+
     }
 }
