@@ -61,5 +61,5 @@
 }
 
 .pane {
-    padding: 30px;
+    overflow: auto;
 }
