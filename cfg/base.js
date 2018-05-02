@@ -13,7 +13,7 @@ const displayComponents         = `${nodeModulesPath}/nessie-ui/`;
 const displayComponentsSrc      = `${nodeModulesPath}/nessie-ui/src`;
 const displayComponentsDefaults =
     `${nodeModulesPath}/nessie-ui/src/defaults.json`;
-
+const displayComponentsName = 'Nessie';
 const displayComponentProps = PROPS_DIR;
 
 module.exports =
@@ -26,7 +26,7 @@ module.exports =
     },
     externals :
     {
-        displayComponents : 'DisplayComponents',
+        displayComponents : displayComponentsName,
         'prop-types'      : 'PropTypes',
         react             : 'React',
         'react-dom'       : 'ReactDOM',
