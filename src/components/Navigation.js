@@ -4,8 +4,6 @@ import PropTypes            from 'prop-types';
 import { NavBar }           from 'nessie-ui';
 import NavItem              from './NavItem';
 
-const href = ( /git/g ).test(window.location.host);
-
 export default class Navigation extends Component
 {
     static propTypes =

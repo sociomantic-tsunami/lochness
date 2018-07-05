@@ -35,6 +35,7 @@ backstop_data
 
 # lochness files
 .lochness
-
+dist
+bin
 
 .DS_Store
