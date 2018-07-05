@@ -21,7 +21,7 @@ export default class Navigation extends Component
         (
             <NavItem
                 label     = { componentName }
-                href      = { href ? `/nessie/#/component/${componentName}` : `/#/component/${componentName}` }
+                href      = { `#/component/${componentName}` }
                 key       = { index }
                 isCurrent = { componentName === currentPage } />
             ) );
@@ -31,7 +31,7 @@ export default class Navigation extends Component
                 <NavItem
                     role      = "primary"
                     label     = "Components"
-                    href      = { href ?  "/nessie/#/components/" :  "/#/components/" }
+                    href      =  "#/components/"
                     isCurrent = { currentPage === 'components' }>
                     { componentsDropdown }
                 </NavItem>
@@ -39,7 +39,7 @@ export default class Navigation extends Component
                     role      = "primary"
                     label     = "Editor"
                     isCurrent = { currentPage === 'editor' }
-                    href      = { href ? "/nessie/#/editor/" : "/#/editor/" } />
+                    href      =  "#/editor/" />
             </NavBar>
         );
     }
