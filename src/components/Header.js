@@ -1,7 +1,7 @@
 /* global document */
 
 import React, { Component } from 'react';
-import svgSprite            from 'nessie-ui/dist/sprite.html';
+import svgSprite            from 'displayComponents/dist/sprite.html';
 import {
     name as displayComponentsName,
     version as displayComponentsVersion,
