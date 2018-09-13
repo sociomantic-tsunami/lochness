@@ -1,7 +1,16 @@
+/*
+ * Copyright (c) 2017-2018 dunnhumby Germany GmbH.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the LICENSE file
+ * in the root directory of this source tree.
+ *
+ */
+
 /* global document */
 
 import React, { Component } from 'react';
-import svgSprite            from 'nessie-ui/dist/sprite.html';
+import svgSprite            from 'displayComponents/dist/sprite.html';
 import {
     name as displayComponentsName,
     version as displayComponentsVersion,
