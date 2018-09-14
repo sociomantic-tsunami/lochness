@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2017-2018 dunnhumby Germany GmbH.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the LICENSE file
+ * in the root directory of this source tree.
+ *
+ */
+
 import React, { Component }   from 'react';
 import PropTypes              from 'prop-types';
 import ReactDOMServer         from 'react-dom/server';
@@ -17,8 +26,10 @@ import CodeViewer             from './CodeViewer';
 import SpecsTable             from './SpecsTable';
 import Configurator           from './Configurator';
 import ModalWrapper           from './ModalWrapper';
+import Preview                from './Preview';
 
 import { nodeToJsx }          from 'helpers/reactNodeHelpers';
+
 
 
 export default class ComponentContainer extends Component
@@ -155,8 +166,16 @@ export default class ComponentContainer extends Component
                             <Column
                                 size  = "1/2"
                                 align = "left">
-                                { name === 'ModalDialog' ?
-                                    <ModalWrapper { ...props } /> : component }
+                                <Preview
+                                    component = { component }
+                                    style =
+                                    {
+                                        {
+                                            height: '100%',
+                                            width: '100%'
+                                        }
+                                    }
+                                />
                             </Column>
                             <Column
                                 size      = "1/2">

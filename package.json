@@ -1,6 +1,6 @@
 {
   "name": "loch-ness",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Live form matrix for UI React components",
   "main": "",
   "bin": {
@@ -125,6 +125,7 @@
     "react-redux": "^4.4.0",
     "react-router": "^2.4.1",
     "react-router-redux": "^4.0.5",
+    "react-split-pane": "2.0.0",
     "redux": "^3.3.1",
     "rimraf": "^2.4.3",
     "slimerjs": "^0.10.3",

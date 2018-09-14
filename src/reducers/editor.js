@@ -1,24 +1,37 @@
+/*
+ * Copyright (c) 2017-2018 dunnhumby Germany GmbH.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the LICENSE file
+ * in the root directory of this source tree.
+ *
+ */
+
 const LOCAL_JSXSTRING  = 'lochness-jsxString';
 const defaultJsxString =
-`<H1>Page Title</H1>
-<Row align="right" verticalAlign="middle">
-    <Column>
-        <Switch isChecked onLabel="Active" offLabel="Deactivated" />
-    </Column>
-    <Column>
-        <Tooltip message="Delete">
-            <IconButton iconType="delete" iconTheme="control" iconSize="M">
-                Delete
-            </IconButton>
-        </Tooltip>
-    </Column>
-</Row>
-<Module title="Module">
-    <Text>Module content...</Text>
-</Module>
-<Module isCollapsible isCollapsed title="Collapsed Module">
-    <Text>Collapsed module content...</Text>
-</Module>`;
+`<Page>
+    <PageContent>
+        <H1>Page Title</H1>
+        <Row align="right" verticalAlign="middle">
+            <Column>
+                <Switch isChecked onLabel="Active" offLabel="Deactivated" />
+            </Column>
+            <Column>
+                <Tooltip message="Delete">
+                    <IconButton iconType="delete" iconTheme="control" iconSize="M">
+                        Delete
+                    </IconButton>
+                </Tooltip>
+            </Column>
+        </Row>
+        <Module title="Module">
+            <Text>Module content...</Text>
+        </Module>
+        <Module isCollapsible isCollapsed title="Collapsed Module">
+            <Text>Collapsed module content...</Text>
+        </Module>
+    </PageContent>
+</Page>`;
 
 export default function editor( state = { jsxString: localStorage.getItem( LOCAL_JSXSTRING ) || defaultJsxString }, action )
 {
