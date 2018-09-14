@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2017-2018 dunnhumby Germany GmbH.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the LICENSE file
+ * in the root directory of this source tree.
+ *
+ */
+
 import React, { Component } from 'react';
 import PropTypes            from 'prop-types';
 
@@ -19,7 +28,7 @@ export default class Navigation extends Component
         (
             <NavItem
                 label     = { componentName }
-                href      = { `/#/component/${componentName}` }
+                href      = { `#/component/${componentName}` }
                 key       = { index }
                 isCurrent = { componentName === currentPage } />
             ) );
@@ -29,7 +38,7 @@ export default class Navigation extends Component
                 <NavItem
                     role      = "primary"
                     label     = "Components"
-                    href      = "/#/components/"
+                    href      =  "#/components/"
                     isCurrent = { currentPage === 'components' }>
                     { componentsDropdown }
                 </NavItem>
@@ -37,7 +46,7 @@ export default class Navigation extends Component
                     role      = "primary"
                     label     = "Editor"
                     isCurrent = { currentPage === 'editor' }
-                    href      = "/#/editor/" />
+                    href      =  "#/editor/" />
             </NavBar>
         );
     }

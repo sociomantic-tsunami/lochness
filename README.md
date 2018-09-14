@@ -8,9 +8,7 @@ Displays all [nessie](https://github.com/sociomantic-tsunami/nessie/) components
 
 ## Install
 
-* `git clone git@github.com:sociomantic-tsunami/lochness.git`
-* `cd lochness`
-* `yarn add lochness`
+In your project type `yarn add lochness`
 
 
 ## Serving your components
@@ -19,34 +17,13 @@ Displays all [nessie](https://github.com/sociomantic-tsunami/nessie/) components
 
 The following flags are available:
 
-```js
-{
-	//the React components to display relative to your app dir.
-	name         : 'components',
-	alias        : 'c',
-	type         : String,
-	defaultValue : 'node_modules/nessie-ui'
-},
-{
-	// which LochNess environment should you use? (Dev by default)
-	name         : 'env',
-	alias        : 'e',
-	type         : String,
-	defaultValue : 'dev'
-},
-{
-	// A defaults.json file of example props to pass to displayed components
-	// overriding defaultProps.
-	name         : 'showcasePropsJson',
-	alias        : 'j',
-	type         : String,
-	defaultValue : 'node_modules/nessie-ui/src/defaults.json'
-}
-```
+* `--components` (`-c`) : the React components to display relative to your app dir.
+* `--env` (`-e`) :  which LochNess environment should you use? (Dev by default).
+* `--showcasePropsJson` (`-j`) A defaults.json file of example props to pass to displayed components.
 
 eg:
 
-`yarn loch -s src -d dist -j src/defaults.json`;
+`yarn loch -c ./ -j src/defaults.json`;
 
 
 ## Testing your components
@@ -81,7 +58,7 @@ The editor allows you to create a module / component using jsx syntax, such as:
     <NessieTextInput label="OurLabel"/>
 </NessieModule>
 ```
-This is translated life to both a module preview, and markup with you can utilise for any module / component.
+This is translated live to both a module preview, and markup with you can utilise for any module / component.
 
 Styles are applied through a generated style.css file.
 
