@@ -13,6 +13,8 @@ import { Component }             from 'react';
 import * as DisplayComponents    from 'displayComponents';
 import { bindActionCreators }    from 'redux';
 import { connect }               from 'react-redux';
+import SplitPane                 from 'react-split-pane';
+import Pane                      from 'react-split-pane/lib/Pane';
 import Header                    from 'components/Header';
 import Navigation                from 'components/Navigation';
 import LivePreview               from 'components/LivePreview';
@@ -145,8 +147,14 @@ class Editor extends Component
                     components  = { components }
                     currentPage = "editor" />
 
-                <Row spacing = "none">
-                    <Column size = "2/5">
+                <SplitPane
+                    split = "vertical"
+                    className = "splitPane" >
+
+                    <Pane
+                        minSize = "25%"
+                        defaultSize = "50%"
+                        className = "pane" >
                         <Module>
                             <Row verticalAlign = "middle">
                                 <Column>{ addComponentWidget }</Column>
@@ -167,11 +175,14 @@ class Editor extends Component
                                 options    = { { lineNumbers: false } }
                                 isReadOnly />
                         </Module>
-                    </Column>
-                    <Column>
+                    </Pane>
+                    <Pane
+                        minSize = "25%"
+                        defaultSize = "50%"
+                        className = "pane" >
                         <LivePreview previewNode = { previewNode } />
-                    </Column>
-                </Row>
+                    </Pane>
+                </SplitPane>
             </Page>
         );
     }
