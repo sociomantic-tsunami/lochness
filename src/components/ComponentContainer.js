@@ -26,8 +26,10 @@ import CodeViewer             from './CodeViewer';
 import SpecsTable             from './SpecsTable';
 import Configurator           from './Configurator';
 import ModalWrapper           from './ModalWrapper';
+import Preview                from './Preview';
 
 import { nodeToJsx }          from 'helpers/reactNodeHelpers';
+
 
 
 export default class ComponentContainer extends Component
@@ -164,8 +166,16 @@ export default class ComponentContainer extends Component
                             <Column
                                 size  = "1/2"
                                 align = "left">
-                                { name === 'ModalDialog' ?
-                                    <ModalWrapper { ...props } /> : component }
+                                <Preview
+                                    component = { component }
+                                    style =
+                                    {
+                                        {
+                                            height: '100%',
+                                            width: '100%'
+                                        }
+                                    }
+                                />
                             </Column>
                             <Column
                                 size      = "1/2">

@@ -10,6 +10,8 @@
 import React, { Component }  from 'react';
 import PropTypes             from 'prop-types';
 
+import Preview               from './Preview';
+
 export default class LivePreview extends Component
 {
     static PropTypes =
@@ -21,6 +23,8 @@ export default class LivePreview extends Component
     {
         const { previewNode = [] } = this.props;
 
-        return <div>{ previewNode }</div>;
+        return <Preview
+            component = { previewNode }
+            style={{minHeight: '100vh', overflow: 'auto'}} />;
     }
 }
