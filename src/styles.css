@@ -14,6 +14,20 @@
     background: no-repeat center/100% url("images/lochness.svg");
 }
 
+
+a /* override default styles with inheritence from nessie-ui */
+{
+    color:               inherit;
+    text-decoration:     inherit;
+
+    &:hover,
+    &:focus,
+    &:active
+    {
+        color:           inherit;
+        text-decoration: inherit;
+    }
+
 /* react-split-pane Resizer: styles for divider/resizer */
 .Resizer {
     background: #000;
