@@ -10,7 +10,7 @@
 /* global Babel */
 
 import * as React                from  'react';
-import * as DisplayComponents    from 'displayComponents';
+import DisplayComponents    from 'displayComponents';
 
 import { unwrapNode }            from './reactNodeHelpers';
 
