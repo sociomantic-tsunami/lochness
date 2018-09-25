@@ -7,7 +7,7 @@
  *
  */
 
-import DisplayComponents from 'displayComponents';
+import DisplayComponents      from 'displayComponents';
 import defaults               from 'displayComponentsDefaults';
 import { jsxToReactNode }     from 'helpers/jsxHelpers';
 
