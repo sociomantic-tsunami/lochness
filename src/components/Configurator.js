@@ -9,7 +9,7 @@
 
 import React, { Component }                             from 'react';
 import PropTypes                                        from 'prop-types';
-import { Label, ScrollBox, Table, TableRow, TableCell } from 'nessie-ui';
+import { ScrollBox, Table, TableRow, TableCell, Text }  from 'nessie-ui';
 
 import BoolToggle                                       from './BoolToggle';
 import StringToggle                                     from './StringToggle';
@@ -122,7 +122,7 @@ export default class Configurator extends Component
                                 return (
                                     <TableRow key = { index }>
                                         <TableCell>
-                                            <Label htmlFor = { `prop-${index}` }>{ propData.required ? `${propName}*` : propName }</Label>
+                                            <Text>{ propData.required ? `${propName}*` : propName }</Text>
                                         </TableCell>
                                         <TableCell>
                                             { this.toogleTypeSwitch( propName, propData.type ) }

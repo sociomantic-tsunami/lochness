@@ -38,6 +38,7 @@ export default class Navigation extends Component
                 <NavItem
                     role      = "primary"
                     label     = "Components"
+                    iconType  = "puzzle-piece"
                     href      =  "#/components/"
                     isCurrent = { currentPage === 'components' }>
                     { componentsDropdown }
@@ -45,6 +46,7 @@ export default class Navigation extends Component
                 <NavItem
                     role      = "primary"
                     label     = "Editor"
+                    iconType  = "edit"
                     isCurrent = { currentPage === 'editor' }
                     href      =  "#/editor/" />
             </NavBar>

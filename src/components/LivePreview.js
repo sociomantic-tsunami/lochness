@@ -25,6 +25,6 @@ export default class LivePreview extends Component
 
         return <Preview
             component = { previewNode }
-            style={{minHeight: '100vh', overflow: 'auto'}} />;
+            style={{ width: '100%', height: '100%'}} />;
     }
 }
