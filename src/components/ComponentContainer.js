@@ -11,7 +11,7 @@ import React, { Component }   from 'react';
 import PropTypes              from 'prop-types';
 import ReactDOMServer         from 'react-dom/server';
 import { Link }               from 'react-router';
-import * as DisplayComponents from 'displayComponents';
+import DisplayComponents      from 'displayComponentsDist';
 import {
     Column,
     H2,
