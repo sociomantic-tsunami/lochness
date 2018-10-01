@@ -12,7 +12,7 @@ import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import updateProps          from 'actions/updateProps';
 
-import { ModalDialog }      from 'displayComponents';
+import { ModalDialog }      from 'displayComponentsDist';
 
 class ModalWrapper extends Component
 {

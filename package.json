@@ -6,7 +6,7 @@
   "bin": {
     "loch": "bin/loch.js",
     "visualTest": "bin/visualTests.js",
-    "loch:build": "bin/build.js"
+    "loch-build": "bin/build.js"
   },
   "scripts": {
     "lint": "eslint ./src",
