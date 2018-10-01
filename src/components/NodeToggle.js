@@ -13,7 +13,7 @@ import * as React             from 'react';
 import ProtoToggle            from './ProtoToggle';
 import PropTypes              from 'prop-types';
 
-import DisplayComponents      from 'displayComponents';
+import DisplayComponents      from 'displayComponentsDist';
 import updateProps            from 'actions/updateProps';
 import { connect }            from 'react-redux';
 import { nodeToJsx }          from 'helpers/reactNodeHelpers';

@@ -10,7 +10,7 @@
 import React, { Component }   from 'react';
 import { connect }            from 'react-redux';
 
-import DisplayComponents      from 'displayComponents';
+import DisplayComponents      from 'displayComponentsDist';
 import { Page }               from 'nessie-ui';
 import { getComponentSpecs }  from '../helpers/componentHelpers';
 
