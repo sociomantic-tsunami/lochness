@@ -9,10 +9,10 @@
 
 /* global Babel */
 
-import * as React                from  'react';
-import DisplayComponents         from 'displayComponentsDist';
+import * as React                     from 'react';
+import * as DisplayComponents         from 'displayComponentsDist';
 
-import { unwrapNode }            from './reactNodeHelpers';
+import { unwrapNode }                 from './reactNodeHelpers';
 
 const babelOptions = { 'presets': [ 'react' ] };
 

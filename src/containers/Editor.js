@@ -10,7 +10,7 @@
 /* global Babel */
 import * as React                from 'react';
 import { Component }             from 'react';
-import DisplayComponents         from 'displayComponentsDist';
+import * as DisplayComponents         from 'displayComponentsDist';
 import { bindActionCreators }    from 'redux';
 import { connect }               from 'react-redux';
 import Header                    from 'components/Header';

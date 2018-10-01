@@ -27,7 +27,7 @@ module.exports =
     },
     externals :
     {
-        displayComponentsDist : 'DisplayComponents',
+        displayComponentsDist : '',
         'prop-types'          : 'PropTypes',
         react                 : 'React',
         'react-dom'           : 'ReactDOM',
