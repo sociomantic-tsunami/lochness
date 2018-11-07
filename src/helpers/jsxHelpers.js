@@ -29,7 +29,7 @@ export const cleanseJsx = ( jsxStr = '' ) =>
     const regex = /(<\/?)([A-Z]\w*)/g;
 
     const cleanse = ( match, g1, g2 ) => (
-        DisplayComponents[ g2 ] ? `${g1}DisplayComponents.${g2}` :
+        DisplayComponents[ g2 ] ? `${g1}Nessie.${g2}` :
             g1 + g2.toLowerCase()
     );
 
