@@ -1,6 +1,6 @@
 {
   "name": "loch-ness",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Live form matrix for UI React components",
   "main": "",
   "bin": {
@@ -100,7 +100,7 @@
     "autoprefixer": "^6.3.3",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.0",
-    "backstopjs": "^3.0.22",
+    "backstopjs": "^3.8.5",
     "command-line-args": "^4.0.6",
     "copyfiles": "^0.2.1",
     "core-js": "^2.0.0",
@@ -132,7 +132,6 @@
     "raw-loader": "^0.5.1",
     "react": "^16.6.3",
     "react-copy-to-clipboard": "^4.1.0",
-    "react-dev-server": "^0.6.2",
     "react-docgen": "^2.17.0",
     "react-dom": "^16.6.3",
     "react-dom-server": "0.0.5",
@@ -147,7 +146,6 @@
     "svg-loader": "^0.0.2",
     "url-loader": "^0.5.6",
     "webpack": "^3.3.0",
-    "webpack-dev-server": "^1.14.1",
     "winston": "^2.3.1",
     "yargs-parser": "^7.0.0"
   }
