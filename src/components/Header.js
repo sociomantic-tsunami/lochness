@@ -10,7 +10,6 @@
 /* global document */
 
 import React, { Component } from 'react';
-import svgSprite            from 'displayComponents/dist/sprite.html';
 import {
     name as displayComponentsName,
     version as displayComponentsVersion,
@@ -24,13 +23,6 @@ import {
 
 export default class LochnessHeader extends Component
 {
-    componentDidMount()
-    {
-        const svgContainer = document.createElement( 'div' );
-        svgContainer.innerHTML = svgSprite;
-        document.body.appendChild( svgContainer );
-    }
-
     render()
     {
         return (

@@ -14,7 +14,6 @@ import DisplayComponents      from 'displayComponentsDist';
 import { Page }               from 'nessie-ui';
 import { getComponentSpecs }  from '../helpers/componentHelpers';
 
-import svgSprite              from 'nessie-ui/dist/sprite.html';
 
 import './componentToTest.css';
 
@@ -27,12 +26,8 @@ class SingleComponentPage extends Component
     componentDidMount()
     {
         const { params } = this.props;
-        const svgContainer = document.createElement( 'div' );
         const componentName = capitalizeFirstLetter( params.componentName );
 
-        svgContainer.innerHTML = svgSprite;
-
-        document.body.appendChild( svgContainer );
         console.log( 'backstopjs_ready' );
         console.log( `testing: ${componentName}` );
     }

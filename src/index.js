@@ -18,6 +18,8 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import configureStore           from './stores';
 import AllRoutes                from './routes';
 
+import { SpriteMap }            from 'displayComponentsDist';
+
 import 'normalize.css';
 import 'nessie-ui/dist/styles.css';
 import './styles.css';
@@ -28,8 +30,10 @@ const history = syncHistoryWithStore( hashHistory, store );
 render(
     <Provider store = { store }>
         <Router history = { history } >
-            {AllRoutes}
+            { AllRoutes }
         </Router>
     </Provider>,
   document.getElementById( 'app' )
 );
+
+render( <SpriteMap />, document.getElementById( 'spriteMap' ) );
