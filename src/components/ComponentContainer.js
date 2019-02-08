@@ -11,7 +11,7 @@ import React, { Component }   from 'react';
 import PropTypes              from 'prop-types';
 import ReactDOMServer         from 'react-dom/server';
 import { Link }               from 'react-router';
-import * as DisplayComponents from 'displayComponents';
+import DisplayComponents      from 'displayComponentsDist';
 import {
     Column,
     H2,
@@ -178,11 +178,6 @@ export default class ComponentContainer extends Component
                     </Tab>
                     <Tab label = "JSX">
                         <CodeViewer code = { nodeToJsx( component ) } />
-                    </Tab>
-                    <Tab
-                        label = "HTML"
-                        isDisabled = { lochnessProps.disableCode }>
-                        <CodeViewer code = { ReactDOMServer.renderToString( component ) } />
                     </Tab>
                 </Tabs>
                 { readmeExists &&

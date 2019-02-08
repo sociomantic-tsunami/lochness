@@ -9,10 +9,10 @@
 
 /* global Babel */
 
-import * as React                from  'react';
-import * as DisplayComponents    from 'displayComponents';
+import * as React                     from 'react';
+import * as DisplayComponents         from 'displayComponentsDist';
 
-import { unwrapNode }            from './reactNodeHelpers';
+import { unwrapNode }                 from './reactNodeHelpers';
 
 const babelOptions = { 'presets': [ 'react' ] };
 
@@ -29,7 +29,7 @@ export const cleanseJsx = ( jsxStr = '' ) =>
     const regex = /(<\/?)([A-Z]\w*)/g;
 
     const cleanse = ( match, g1, g2 ) => (
-        DisplayComponents[ g2 ] ? `${g1}DisplayComponents.${g2}` :
+        DisplayComponents[ g2 ] ? `${g1}Nessie.${g2}` :
             g1 + g2.toLowerCase()
     );
 

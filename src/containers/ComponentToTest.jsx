@@ -10,13 +10,13 @@
 import React, { Component }   from 'react';
 import { connect }            from 'react-redux';
 
-import * as DisplayComponents from 'displayComponents';
+import DisplayComponents      from 'displayComponentsDist';
 import { Page }               from 'nessie-ui';
 import { getComponentSpecs }  from '../helpers/componentHelpers';
 
-import svgSprite              from 'nessie-ui/dist/sprite.html';
 
 import './componentToTest.css';
+
 const capitalizeFirstLetter = ( str ) =>
 str.charAt( 0 ).toUpperCase() + str.slice( 1 );
 
@@ -26,12 +26,8 @@ class SingleComponentPage extends Component
     componentDidMount()
     {
         const { params } = this.props;
-        const svgContainer = document.createElement( 'div' );
         const componentName = capitalizeFirstLetter( params.componentName );
 
-        svgContainer.innerHTML = svgSprite;
-
-        document.body.appendChild( svgContainer );
         console.log( 'backstopjs_ready' );
         console.log( `testing: ${componentName}` );
     }
@@ -52,7 +48,7 @@ class SingleComponentPage extends Component
         const initial_variation = React.createElement(
                 DisplayComponents[ componentName ], componentsWithParams );
 
-        const container = React.createElement( 'div', { className: 'lochness_testbox'}, initial_variation );
+        const container = React.createElement( 'div', { className: 'lochness_testbox' }, initial_variation );
         majorComponentVariations.push( container );
 
 
@@ -66,24 +62,24 @@ class SingleComponentPage extends Component
                 const newValue = !!propObject.defaultValue.value;
                 const variationProps = {
                     ...componentFromStore.props,
-                    [ prop ]: newValue
+                    [ prop ] : newValue
                 };
 
 
                 const variation = React.createElement(
                     DisplayComponents[ componentName ],
                     variationProps );
-                const container = React.createElement( 'div', { className: 'lochness_testbox'}, variation );
+                const container = React.createElement( 'div', { className: 'lochness_testbox' }, variation );
                 majorComponentVariations.push( container );
             }
         } );
 
-        let testClassName = 'visualTesting';
+        const testClassName = 'visualTesting';
 
         return (
-                <div className={ testClassName }>
-                    { majorComponentVariations }
-                </div>
+            <div className = { testClassName }>
+                { majorComponentVariations }
+            </div>
         );
     }
 }

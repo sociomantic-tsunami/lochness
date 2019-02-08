@@ -11,7 +11,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducers                                  from '../reducers';
 import debounceMiddleware                        from '../middlewares/debounceMiddleware';
 
-module.exports = function( initialState )
+export default function ( initialState )
 {
     const store = createStore( reducers, initialState,
       compose(
