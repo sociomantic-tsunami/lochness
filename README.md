@@ -17,13 +17,13 @@ In your project type `yarn add lochness`
 
 The following flags are available:
 
-* `--components` (`-c`) : the React components to display relative to your app dir.
+* `--lib` (`-l`) : the React components to display relative to your app dir.
 * `--env` (`-e`) :  which LochNess environment should you use? (Dev by default).
-* `--showcasePropsJson` (`-j`) A defaults.json file of example props to pass to displayed components.
+* `--props` (`-j`) A defaults.json file of example props to pass to displayed components.
 
 eg:
 
-`yarn loch -c ./ -j src/defaults.json`;
+`yarn loch -l ./ -j src/defaults.json`;
 
 
 ## Testing your components
