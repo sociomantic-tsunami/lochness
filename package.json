@@ -106,7 +106,7 @@
     "nessie-ui": "^5.5.3",
     "normalize.css": "^5.0.0",
     "null-loader": "^0.1.1",
-    "open": "^0.0.5",
+    "open": "^6.0.0",
     "phantomjs-prebuilt": "^2.1.13",
     "postcss": "^5.0.21",
     "postcss-color-function": "^2.0.1",
